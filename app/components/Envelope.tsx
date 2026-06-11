@@ -32,7 +32,7 @@ export default function Envelope() {
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          transition={{ duration: 0.8 }}
           onClick={handleEnvelopeClick}
           className="cursor-pointer"
         >
@@ -43,21 +43,21 @@ export default function Envelope() {
               {/* Aba superior (tampa) */}
               <motion.div
                 animate={isOpening ? { rotateX: -120 } : { rotateX: 0 }}
-                transition={{ duration: 1.5, ease: 'easeInOut' }}
+                transition={{ duration: 1.5 }}
                 style={{
                   transformStyle: 'preserve-3d',
                   transformOrigin: 'top',
+                  height: '50%',
                 }}
                 className="absolute top-0 left-0 right-0 bg-gradient-to-b from-rose-100 to-rose-50 border-b-2 border-rose-200"
-                style={{ height: '50%' }}
               >
                 {/* Aba esquerda da tampla */}
                 <motion.div
                   animate={isOpening ? { rotateZ: -45 } : { rotateZ: 0 }}
-                  transition={{ duration: 1.5, ease: 'easeInOut', delay: 0.3 }}
-                  style={{ transformOrigin: 'center' }}
+                  transition={{ duration: 1.5, delay: 0.3 }}
                   className="absolute top-0 left-0 bg-gradient-to-br from-rose-100 to-rose-200"
                   style={{
+                    transformOrigin: 'center',
                     width: '50%',
                     height: '100%',
                     clipPath: 'polygon(0 0, 100% 0, 0 100%)',
@@ -67,10 +67,10 @@ export default function Envelope() {
                 {/* Aba direita da tampa */}
                 <motion.div
                   animate={isOpening ? { rotateZ: 45 } : { rotateZ: 0 }}
-                  transition={{ duration: 1.5, ease: 'easeInOut', delay: 0.3 }}
-                  style={{ transformOrigin: 'center' }}
+                  transition={{ duration: 1.5, delay: 0.3 }}
                   className="absolute top-0 right-0 bg-gradient-to-bl from-rose-100 to-rose-200"
                   style={{
+                    transformOrigin: 'center',
                     width: '50%',
                     height: '100%',
                     clipPath: 'polygon(100% 0, 100% 100%, 0 0)',
@@ -104,7 +104,7 @@ export default function Envelope() {
             {/* Linha central de abertura */}
             <motion.div
               animate={isOpening ? { scaleY: 0 } : { scaleY: 1 }}
-              transition={{ duration: 1.5, ease: 'easeInOut' }}
+              transition={{ duration: 1.5 }}
               className="absolute left-0 right-0 top-1/2 h-0.5 bg-gradient-to-r from-transparent via-gray-300 to-transparent transform -translate-y-1/2"
               style={{ transformOrigin: 'center' }}
             />

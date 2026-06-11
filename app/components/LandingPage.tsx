@@ -20,7 +20,7 @@ export default function LandingPage() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: 'easeOut' },
+      transition: { duration: 0.8 },
     },
   };
 
@@ -29,7 +29,7 @@ export default function LandingPage() {
     visible: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 1, ease: 'easeOut' },
+      transition: { duration: 1 },
     },
   };
 
@@ -45,7 +45,6 @@ export default function LandingPage() {
           transition={{
             duration: 8,
             repeat: Infinity,
-            ease: 'easeInOut',
           }}
           className="absolute top-10 left-10 w-32 h-32 bg-rose-200 rounded-full blur-3xl"
         ></motion.div>
@@ -57,7 +56,6 @@ export default function LandingPage() {
           transition={{
             duration: 10,
             repeat: Infinity,
-            ease: 'easeInOut',
           }}
           className="absolute bottom-20 right-20 w-40 h-40 bg-purple-200 rounded-full blur-3xl"
         ></motion.div>
@@ -69,7 +67,6 @@ export default function LandingPage() {
           transition={{
             duration: 12,
             repeat: Infinity,
-            ease: 'easeInOut',
           }}
           className="absolute top-1/3 right-1/4 w-36 h-36 bg-blue-200 rounded-full blur-3xl"
         ></motion.div>
