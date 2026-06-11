@@ -115,9 +115,8 @@ export default function LandingPage() {
               🌙 O convite
             </h2>
             <p className="text-lg text-red-200 leading-relaxed">
-              Maira, você é convidada a vir ao meu coração. Não para uma festa ou evento qualquer,
-              mas para algo que só você pode preencher. Algo que começou no momento em que você chegou
-              e que nunca mais será o mesmo.
+              Maira, eu te venero. Venero teu corpo por toda a sua beleza, venero tua mente pela tua inteligência. Saiba que eu nunca poderia te tocar, a não ser que você permitisse. E se um dia permitir, será como tocar o próprio destino.
+De todas as dúvidas que você tiver, saiba de uma coisa: eu te quero, eu te quero não apenas hoje, mas em cada instante que o tempo ousar existir.
             </p>
           </motion.div>
 
@@ -167,7 +166,7 @@ export default function LandingPage() {
             </p>
           </motion.div>
           <motion.a
-            href="https://wa.me/?text=Maira%20aceitou%20o%20convite%20para%20seu%20coração%20❤️"
+            href="https://wa.me/258840437680?text=20Aceito%20o%20convite%20para%20seu%20coração%20❤️"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.08, boxShadow: '0 0 40px rgba(239, 68, 68, 0.8)' }}
