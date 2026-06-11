@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 
 export default function LandingPage() {
   const containerVariants = {
@@ -24,51 +23,42 @@ export default function LandingPage() {
     },
   };
 
-  const imageVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 1 },
-    },
-  };
-
   return (
-    <div className="w-full min-h-screen bg-gradient-to-br from-rose-50 via-purple-50 to-blue-50 overflow-hidden">
-      {/* Decoração de fundo animada */}
-      <div className="absolute inset-0 opacity-40 pointer-events-none">
+    <div className="w-full min-h-screen bg-gradient-to-br from-slate-950 via-red-950 to-black overflow-hidden">
+      {/* Decoração de fundo animada - mais intensa */}
+      <div className="absolute inset-0 opacity-50 pointer-events-none">
         <motion.div
           animate={{
-            y: [0, -20, 0],
-            x: [0, 10, 0],
+            y: [0, -30, 0],
+            x: [0, 15, 0],
           }}
           transition={{
             duration: 8,
             repeat: Infinity,
           }}
-          className="absolute top-10 left-10 w-32 h-32 bg-rose-200 rounded-full blur-3xl"
+          className="absolute top-10 left-10 w-40 h-40 bg-red-700 rounded-full blur-3xl"
         ></motion.div>
         <motion.div
           animate={{
-            y: [0, 20, 0],
-            x: [0, -10, 0],
+            y: [0, 30, 0],
+            x: [0, -15, 0],
           }}
           transition={{
             duration: 10,
             repeat: Infinity,
           }}
-          className="absolute bottom-20 right-20 w-40 h-40 bg-purple-200 rounded-full blur-3xl"
+          className="absolute bottom-20 right-20 w-48 h-48 bg-purple-900 rounded-full blur-3xl"
         ></motion.div>
         <motion.div
           animate={{
-            y: [0, -15, 0],
-            x: [0, -15, 0],
+            y: [0, -20, 0],
+            x: [0, -20, 0],
           }}
           transition={{
             duration: 12,
             repeat: Infinity,
           }}
-          className="absolute top-1/3 right-1/4 w-36 h-36 bg-blue-200 rounded-full blur-3xl"
+          className="absolute top-1/3 right-1/4 w-44 h-44 bg-red-900 rounded-full blur-3xl"
         ></motion.div>
       </div>
 
@@ -79,165 +69,125 @@ export default function LandingPage() {
         animate="visible"
         className="relative z-10 w-full max-w-6xl mx-auto px-4 py-20"
       >
-        {/* Header com ícone */}
+        {/* Header principal - Mistério e Romance */}
         <motion.div
           variants={itemVariants}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
           <motion.div
-            animate={{ rotate: [0, 5, -5, 0] }}
+            animate={{ rotate: [0, 10, -10, 0] }}
             transition={{ duration: 4, repeat: Infinity }}
-            className="inline-block text-7xl mb-6"
+            className="inline-block text-8xl mb-8"
           >
-            💌
+            🖤
           </motion.div>
-          <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-rose-600 via-purple-600 to-blue-600 bg-clip-text text-transparent mb-6">
-            Você foi Convidado!
+          <h1 className="text-6xl md:text-7xl font-black bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent mb-6 tracking-tight">
+            Maira...
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 mb-4">
-            Algo especial está vindo
+          <p className="text-2xl md:text-3xl text-red-400 mb-4 font-light italic">
+            "Existe um momento na vida, quando tudo muda"
           </p>
         </motion.div>
 
-        {/* Seção de Imagens */}
+        {/* Mensagens impactantes */}
         <motion.div
           variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
-        >
-          {[1, 2, 3].map((i) => (
-            <motion.div
-              key={i}
-              variants={imageVariants}
-              whileHover={{ scale: 1.05, y: -10 }}
-              transition={{ type: 'spring', stiffness: 300 }}
-              className="relative h-64 rounded-xl overflow-hidden shadow-xl"
-            >
-              <div className="w-full h-full bg-gradient-to-br from-rose-200 to-purple-200 flex items-center justify-center">
-                <div className="text-5xl">
-                  {i === 1 && '🎉'}
-                  {i === 2 && '✨'}
-                  {i === 3 && '🎊'}
-                </div>
-              </div>
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Conteúdo de Boas-vindas */}
-        <motion.div
-          variants={itemVariants}
-          className="bg-white/80 backdrop-blur-md rounded-2xl p-8 md:p-12 shadow-xl mb-16 border border-white/50"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-            Bem-vindo ao nosso Evento!
-          </h2>
-          <div className="space-y-4 text-gray-700 text-lg">
-            <p>
-              Estamos muito felizes por você estar aqui! Este evento será uma celebração especial repleta de momentos inesquecíveis.
-            </p>
-            <p>
-              Prepare-se para uma experiência única, cheia de surpresas, alegria e muita diversão. Sua presença faz toda a diferença!
-            </p>
-            <p>
-              Fique atento aos detalhes e prepare-se para uma jornada extraordinária.
-            </p>
-          </div>
-        </motion.div>
-
-        {/* Detalhes do Evento */}
-        <motion.div
-          variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16"
+          className="grid grid-cols-1 gap-8 mb-16"
         >
           <motion.div
             variants={itemVariants}
-            className="bg-gradient-to-br from-rose-100 to-pink-100 rounded-xl p-8 border-2 border-rose-200"
+            className="bg-gradient-to-r from-red-950/80 to-slate-900/80 backdrop-blur-md rounded-2xl p-10 border border-red-700/50 shadow-2xl hover:border-red-600 transition-all"
           >
-            <h3 className="text-2xl font-bold text-rose-700 mb-3 flex items-center gap-2">
-              <span className="text-3xl">📅</span> Data & Hora
-            </h3>
-            <p className="text-gray-700">
-              Em breve você receberá todos os detalhes sobre data, hora e local do evento.
+            <h2 className="text-3xl md:text-4xl font-bold text-red-500 mb-4">
+              ✨ Este não é um convite comum
+            </h2>
+            <p className="text-lg text-red-200 leading-relaxed">
+              É uma promessa sussurrada no vento, um segredo guardado pelas estrelas. 
+              Hoje, no exato momento em que você lê estas palavras, meu coração bate seu nome.
             </p>
           </motion.div>
 
           <motion.div
             variants={itemVariants}
-            className="bg-gradient-to-br from-purple-100 to-blue-100 rounded-xl p-8 border-2 border-purple-200"
+            className="bg-gradient-to-r from-slate-900/80 to-red-950/80 backdrop-blur-md rounded-2xl p-10 border border-red-700/50 shadow-2xl hover:border-red-600 transition-all"
           >
-            <h3 className="text-2xl font-bold text-purple-700 mb-3 flex items-center gap-2">
-              <span className="text-3xl">📍</span> Local
-            </h3>
-            <p className="text-gray-700">
-              Fique atento para descobrir onde este evento especial será realizado.
+            <h2 className="text-3xl md:text-4xl font-bold text-red-500 mb-4">
+              🌙 O convite
+            </h2>
+            <p className="text-lg text-red-200 leading-relaxed">
+              Maira, você é convidada a vir ao meu coração. Não para uma festa ou evento qualquer,
+              mas para algo que só você pode preencher. Algo que começou no momento em que você chegou
+              e que nunca mais será o mesmo.
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={itemVariants}
+            className="bg-gradient-to-r from-red-950/80 to-slate-900/80 backdrop-blur-md rounded-2xl p-10 border border-red-700/50 shadow-2xl hover:border-red-600 transition-all"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-red-500 mb-4">
+              ⏰ Data & Hora
+            </h2>
+            <p className="text-2xl text-red-400 font-bold mb-2">
+              AGORA
+            </p>
+            <p className="text-lg text-red-200">
+              Este é o momento. Não há espera, não há amanhã. É hoje, é neste instante,
+              que quero que você saiba o quanto você significa para mim.
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={itemVariants}
+            className="bg-gradient-to-r from-slate-900/80 to-red-950/80 backdrop-blur-md rounded-2xl p-10 border border-red-700/50 shadow-2xl hover:border-red-600 transition-all"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-red-500 mb-4">
+              💌 Para você saber
+            </h2>
+            <p className="text-lg text-red-200 leading-relaxed">
+              Você é a pessoa que mudou meu mundo. Cada palavra sua, cada sorriso,
+              cada momento compartilhado se tornou parte de quem sou. Este convite é minha forma
+              de dizer que você é especial demais para passar despercebida.
             </p>
           </motion.div>
         </motion.div>
 
-        {/* Call to Action */}
+        {/* Call to Action - Botão que aceitará */}
         <motion.div
           variants={itemVariants}
-          className="text-center"
+          className="text-center mt-20"
         >
-          <motion.button
-            whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(0,0,0,0.15)' }}
+          <motion.div
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 3, repeat: Infinity }}
+            className="inline-block mb-8"
+          >
+            <p className="text-red-500 text-xl font-semibold">
+              Sua resposta mudará tudo...
+            </p>
+          </motion.div>
+          <motion.a
+            href="https://wa.me/?text=Maira%20aceitou%20o%20convite%20para%20seu%20coração%20❤️"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.08, boxShadow: '0 0 40px rgba(239, 68, 68, 0.8)' }}
             whileTap={{ scale: 0.95 }}
-            className="px-10 py-4 bg-gradient-to-r from-rose-500 via-purple-500 to-blue-500 text-white text-lg font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+            className="px-12 py-5 bg-gradient-to-r from-red-600 to-red-700 text-white text-xl font-bold rounded-full shadow-2xl hover:shadow-red-600/50 transition-all duration-300 inline-block border border-red-500"
           >
-            Confirme sua Presença
-          </motion.button>
-          <motion.p
-            animate={{ y: [0, 5, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="text-gray-600 mt-6 text-sm"
-          >
-            ↓ Desça para mais informações ↓
-          </motion.p>
+            💕 Eu Aceito
+          </motion.a>
         </motion.div>
 
-        {/* Seção Adicional */}
+        {/* Mensagem final */}
         <motion.div
           variants={itemVariants}
-          className="mt-20 text-center"
+          className="text-center mt-16"
         >
-          <h3 className="text-2xl font-bold text-gray-800 mb-8">
-            O que esperar?
-          </h3>
-          <motion.div
-            variants={containerVariants}
-            className="grid grid-cols-1 md:grid-cols-4 gap-4"
-          >
-            {['Diversão', 'Surpresas', 'Momentos', 'Memórias'].map((item, idx) => (
-              <motion.div
-                key={idx}
-                variants={itemVariants}
-                whileHover={{ y: -5 }}
-                className="bg-white/60 backdrop-blur-md rounded-lg p-6 border border-white/50"
-              >
-                <p className="text-lg font-semibold text-transparent bg-gradient-to-r from-rose-600 to-purple-600 bg-clip-text">
-                  {item}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
+          <p className="text-red-400 text-sm md:text-base italic">
+            "E assim começa uma nova história... A nossa."
+          </p>
         </motion.div>
       </motion.div>
-
-      {/* Footer */}
-      <motion.footer
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="relative z-10 border-t border-white/20 mt-20 py-8 text-center text-gray-600 text-sm"
-      >
-        <p>✨ Obrigado por aceitar nosso convite ✨</p>
-      </motion.footer>
     </div>
   );
 }
