@@ -1,8 +1,13 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
+import MeetingDetailsForm from './MeetingDetailsForm';
 
 export default function LandingPage() {
+  const [showForm, setShowForm] = useState(false);
+  const [noButtonPos, setNoButtonPos] = useState({ x: 0, y: 0 });
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -22,6 +27,20 @@ export default function LandingPage() {
       transition: { duration: 0.8 },
     },
   };
+
+  const handleNoHover = () => {
+    const randomX = (Math.random() - 0.5) * 300;
+    const randomY = (Math.random() - 0.5) * 300;
+    setNoButtonPos({ x: randomX, y: randomY });
+  };
+
+  const handleYesClick = () => {
+    setShowForm(true);
+  };
+
+  if (showForm) {
+    return <MeetingDetailsForm />;
+  }
 
   return (
     <div className="w-full min-h-screen bg-gradient-to-br from-slate-950 via-red-950 to-black overflow-hidden">
@@ -99,11 +118,11 @@ export default function LandingPage() {
             className="bg-gradient-to-r from-red-950/80 to-slate-900/80 backdrop-blur-md rounded-2xl p-10 border border-red-700/50 shadow-2xl hover:border-red-600 transition-all"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-red-500 mb-4">
-              ✨ Este não é um convite comum
+              ✨ Você aceitou! 🎉
             </h2>
             <p className="text-lg text-red-200 leading-relaxed">
-              É uma promessa sussurrada no vento, um segredo guardado pelas estrelas. 
-              Hoje, no exato momento em que você lê estas palavras, meu coração bate seu nome.
+              Sabia que você diria sim kk, eu meio que não dei outra opção e so agora notei😅! chegou a hora de planejamos nosso encontro especial.
+              Cada detalhe será importante, cada momento será único porque será compartilhado com você.
             </p>
           </motion.div>
 
@@ -112,11 +131,10 @@ export default function LandingPage() {
             className="bg-gradient-to-r from-slate-900/80 to-red-950/80 backdrop-blur-md rounded-2xl p-10 border border-red-700/50 shadow-2xl hover:border-red-600 transition-all"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-red-500 mb-4">
-              🌙 O convite
+              💌 O próximo passo
             </h2>
             <p className="text-lg text-red-200 leading-relaxed">
-              Maira, eu te venero. Venero teu corpo por toda a sua beleza, venero tua mente pela tua inteligência. Saiba que eu nunca poderia te tocar, a não ser que você permitisse. E se um dia permitir, será como tocar o próprio destino.
-De todas as dúvidas que você tiver, saiba de uma coisa: eu te quero, eu te quero não apenas hoje, mas em cada instante que o tempo ousar existir.
+              Clique no botão abaixo para nos planejarmos juntos. Preencheremos os detalhes do nosso encontro,
             </p>
           </motion.div>
 
@@ -125,56 +143,40 @@ De todas as dúvidas que você tiver, saiba de uma coisa: eu te quero, eu te que
             className="bg-gradient-to-r from-red-950/80 to-slate-900/80 backdrop-blur-md rounded-2xl p-10 border border-red-700/50 shadow-2xl hover:border-red-600 transition-all"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-red-500 mb-4">
-              ⏰ Data & Hora
-            </h2>
-            <p className="text-2xl text-red-400 font-bold mb-2">
-              AGORA
-            </p>
-            <p className="text-lg text-red-200">
-              Este é o momento. Não há espera, não há amanhã. É hoje, é neste instante,
-              que quero que você saiba o quanto você significa para mim.
-            </p>
-          </motion.div>
-
-          <motion.div
-            variants={itemVariants}
-            className="bg-gradient-to-r from-slate-900/80 to-red-950/80 backdrop-blur-md rounded-2xl p-10 border border-red-700/50 shadow-2xl hover:border-red-600 transition-all"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-red-500 mb-4">
-              💌 Para você saber
+              ⚠️ Atenção
             </h2>
             <p className="text-lg text-red-200 leading-relaxed">
-              Você é a pessoa que mudou meu mundo. Cada palavra sua, cada sorriso,
-              cada momento compartilhado se tornou parte de quem sou. Este convite é minha forma
-              de dizer que você é especial demais para passar despercebida.
+              Vejo que você está pensando em clicar em "Não"... mas deixa eu avisar: aquele botão é meio "esquivo" 😏
+              Clique em "Sim" e vamos para nosso encontro!
             </p>
           </motion.div>
         </motion.div>
 
-        {/* Call to Action - Botão que aceitará */}
+        {/* Botões de Sim e Não */}
         <motion.div
           variants={itemVariants}
-          className="text-center mt-20"
+          className="text-center mt-20 flex justify-center gap-8 relative h-24"
         >
-          <motion.div
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 3, repeat: Infinity }}
-            className="inline-block mb-8"
-          >
-            <p className="text-red-500 text-xl font-semibold">
-              Sua resposta mudará tudo...
-            </p>
-          </motion.div>
-          <motion.a
-            href="https://wa.me/258840437680?text=20Aceito%20o%20convite%20para%20seu%20coração%20❤️"
-            target="_blank"
-            rel="noopener noreferrer"
+          {/* Botão SIM */}
+          <motion.button
+            onClick={handleYesClick}
             whileHover={{ scale: 1.08, boxShadow: '0 0 40px rgba(239, 68, 68, 0.8)' }}
             whileTap={{ scale: 0.95 }}
-            className="px-12 py-5 bg-gradient-to-r from-red-600 to-red-700 text-white text-xl font-bold rounded-full shadow-2xl hover:shadow-red-600/50 transition-all duration-300 inline-block border border-red-500"
+            className="px-12 py-5 bg-gradient-to-r from-red-600 to-red-700 text-white text-xl font-bold rounded-full shadow-2xl hover:shadow-red-600/50 transition-all duration-300 border border-red-500"
           >
-            💕 Eu Aceito
-          </motion.a>
+            💕 Sim, vamos!
+          </motion.button>
+
+          {/* Botão NÃO - que foge */}
+          <motion.button
+            animate={{ x: noButtonPos.x, y: noButtonPos.y }}
+            transition={{ type: 'spring', stiffness: 150, damping: 15 }}
+            onMouseEnter={handleNoHover}
+            onTouchStart={handleNoHover}
+            className="px-12 py-5 bg-gradient-to-r from-gray-600 to-gray-700 text-white text-xl font-bold rounded-full shadow-2xl hover:shadow-gray-600/50 transition-all duration-300 border border-gray-500"
+          >
+            ❌ Não...
+          </motion.button>
         </motion.div>
 
         {/* Mensagem final */}
@@ -183,7 +185,7 @@ De todas as dúvidas que você tiver, saiba de uma coisa: eu te quero, eu te que
           className="text-center mt-16"
         >
           <p className="text-red-400 text-sm md:text-base italic">
-            "E assim começa uma nova história... A nossa."
+            "E assim continua a história... A nossa."
           </p>
         </motion.div>
       </motion.div>
